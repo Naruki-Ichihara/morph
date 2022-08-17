@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  morph:
+    restart: always
+    image: ichiharanaruki/fenics_optimize:latest
+    container_name: 'morph'
+    working_dir: '/root/'
+    tty: true
+    volumes:
+    - ../:/workspace
+    shm_size: 4gb
+    ulimits:
+      memlock: -1
+      stack: 67108864
+    environment:
+       - DISPLAY=host.docker.internal:0.0
+    environment:
+      TZ: 'Asia/Tokyo'
