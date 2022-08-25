@@ -100,8 +100,8 @@ def rotated_lamina_stiffness_shear(G13, G23, theta, kappa=5./6.):
     # The rotation matrix to rotate the shear stiffness matrix
     # in Voigt notation of an angle theta from the material directions
     # (See Reddy 1997 pg 91, eqn 2.3.7)
-    c = m.cos(theta)
-    s = m.sin(theta)
+    c = cos(theta)
+    s = sin(theta)
     T_shear = as_matrix([[c, s], [-s, c]])
     Q_shear = kappa*as_matrix([[G23, 0.], [0., G13]])
     Q_shear_theta = T_shear*Q_shear*transpose(T_shear)
@@ -284,7 +284,7 @@ def NM_T(E1, E2, G12, nu12, hs, thetas, DeltaT_0, DeltaT_1=0., alpha1=1., alpha2
         Q_theta = rotated_lamina_stiffness_inplane(
             E1, E2, G12, nu12, thetas[i])
         alpha_theta = rotated_lamina_expansion_inplane(
-            alpha1[i], alpha2[i], thetas[i])
+            alpha1, alpha2, thetas[i])
         # numerical integration in the i-th layer
         z0i = (z[i+1] + z[i])/2  # Midplane of the ith layer
         # integral of DeltaT(z) in (z[i+1], z[i])

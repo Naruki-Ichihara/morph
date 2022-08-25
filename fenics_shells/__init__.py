@@ -30,6 +30,7 @@ from .common.constitutive_models import stress_to_voigt, strain_to_voigt
 from .common.constitutive_models import stress_from_voigt, strain_from_voigt
 from .common.kinematics import e, k, F
 from .common.energy import membrane_bending_energy
+from .common.laminates import *
 
 from .reissner_mindlin.forms import gamma
 from .reissner_mindlin.forms import psi_T
@@ -43,9 +44,9 @@ from .von_karman.kinematics import e as von_karman_e
 
 from .naghdi.kinematics import d, G, K, g
 
+
 from .functions import *
 
 # Don't bring the analytical solutions into the fenics_shells namespace
 from . import analytical
 from . import reissner_mindlin
-from .common import laminates
